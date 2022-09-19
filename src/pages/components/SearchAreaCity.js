@@ -9,18 +9,23 @@ function SearchAreaCity({currentCity,setCurrentCity}) {
     switch (value) {
       case "北部地區":
         setCurrentAreaCity(north);
+        setCurrentCity('Taipei');
         break;
       case "中部地區":
         setCurrentAreaCity(west);
+        setCurrentCity('Taichung');
         break;
       case "南部地區":
         setCurrentAreaCity(south);
+        setCurrentCity('Tainan');
         break;
       case "東部地區":
         setCurrentAreaCity(east);
+        setCurrentCity('HualienCounty');
         break;
       case "離島地區":
         setCurrentAreaCity(sea);
+        setCurrentCity('PenghuCounty');
         break;
       default:
         setCurrentArea("請選擇地區");

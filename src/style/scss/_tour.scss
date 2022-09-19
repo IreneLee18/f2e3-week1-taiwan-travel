@@ -8,14 +8,8 @@ header {
   }
 }
 
-.banner {
-  p {
-    margin: 30px 0 35px;
-    font-size: 22px;
-  }
-}
-
 .main {
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
   // overflow: hidden;
@@ -133,7 +127,7 @@ header {
 
   .card {
     @include background-color-radius15($white, $gray-700, 16px);
-    @include size(826px, 240px, 700px, 240px, 345px, 133px);
+    @include size(826px, 240px, 700px, 240px, 345px, 185px);
     display: flex;
     justify-content: space-between;
     margin-bottom: 48px;
@@ -145,7 +139,7 @@ header {
         border-radius: 15px 0 0 15px;
 
         @media (max-width:375px) {
-          @include normal-size(173px, 133px);
+          @include normal-size(173px, 185px);
         }
       }
     }
@@ -162,27 +156,33 @@ header {
       margin-bottom: 8px;
       flex-wrap: wrap;
 
-      @media (max-width:375px) {
-        flex-direction: column-reverse;
+      .name {
+        color: $blue;
+        font-size: 22px;
+        margin-bottom: 8px;
+
+        @media (max-width:375px) {
+          font-size: 16px;
+          width: 100%;
+        }
       }
 
-      p {
-        &:first-child {
-          color: $blue;
-          font-size: 22px;
-          width: 70%;
+      .classGroup {
+        display: flex;
+        align-items: start;
+        flex-wrap: wrap;
 
-          @media (max-width:375px) {
-            font-size: 16px;
-            width: 100%;
-            margin-top: 8px;
+        p {
+          @include background-color-radius15($yellow, $white, 14px);
+          padding: 5px 10px;
+          margin-right: 8px;
+          margin-bottom: 4px;
+
+          &:last-child {
+            margin: 0 0 4px;
           }
         }
 
-        &:last-child {
-          @include background-color-radius15($yellow, $white, 14px);
-          padding: 5px 10px;
-        }
       }
     }
 

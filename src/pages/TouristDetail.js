@@ -26,7 +26,7 @@ function TouristDetail() {
               </Link>
             </li>
             <li>
-              <span class="material-icons-outlined text-gray-700">
+              <span className="material-icons-outlined text-gray-700">
                 navigate_next
               </span>
             </li>

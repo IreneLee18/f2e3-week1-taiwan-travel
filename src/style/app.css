@@ -523,12 +523,8 @@ header .tour-header {
   margin-bottom: 18px;
 }
 
-.banner p {
-  margin: 30px 0 35px;
-  font-size: 22px;
-}
-
 .main {
+  margin-top: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -717,7 +713,7 @@ header .tour-header {
 @media (max-width: 375px) {
   .main-tour-list .card {
     width: 345px;
-    height: 133px;
+    height: 185px;
   }
 }
 
@@ -730,7 +726,7 @@ header .tour-header {
 @media (max-width: 375px) {
   .main-tour-list .card-image img {
     width: 173px;
-    height: 133px;
+    height: 185px;
   }
 }
 
@@ -754,35 +750,42 @@ header .tour-header {
       flex-wrap: wrap;
 }
 
-@media (max-width: 375px) {
-  .main-tour-list .card-title {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
-  }
-}
-
-.main-tour-list .card-title p:first-child {
+.main-tour-list .card-title .name {
   color: #7BAEBE;
   font-size: 22px;
-  width: 70%;
+  margin-bottom: 8px;
 }
 
 @media (max-width: 375px) {
-  .main-tour-list .card-title p:first-child {
+  .main-tour-list .card-title .name {
     font-size: 16px;
     width: 100%;
-    margin-top: 8px;
   }
 }
 
-.main-tour-list .card-title p:last-child {
+.main-tour-list .card-title .classGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.main-tour-list .card-title .classGroup p {
   background-color: #E8CB89;
   color: #FFFFFF;
   font-size: 14px;
   border-radius: 15px;
   padding: 5px 10px;
+  margin-right: 8px;
+  margin-bottom: 4px;
+}
+
+.main-tour-list .card-title .classGroup p:last-child {
+  margin: 0 0 4px;
 }
 
 .main-tour-list .card-text {
@@ -1022,5 +1025,44 @@ header .tour-header {
 .tourist-detail h2 {
   font-size: 18px;
   margin-bottom: 35px;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+.pagination li {
+  width: 50px;
+  height: 50px;
+  background-color: #FFFFFF;
+  color: #7BAEBE;
+  font-size: 18px;
+  border-radius: 15px;
+  border: 1px solid #7BAEBE;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+  margin: 0 6px 70px;
+}
+
+.pagination li:hover {
+  color: #FFFFFF;
+  background: #7BAEBE;
+}
+
+.pagination .pagination-active {
+  color: #FFFFFF;
+  background: #7BAEBE;
+}
+
+.pagination .disabled {
+  background: #E6E6E6;
+  color: #BCBCBC;
+  border-color: #E6E6E6;
 }
 /*# sourceMappingURL=app.css.map */

@@ -1,54 +1,45 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import SearchAreaCity from "./components/SearchAreaCity";
+import Pagination from "./components/Pagination";
 import { Link } from "react-router-dom";
 import { categoryData } from "./Data/TourData";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 function TouristSpots() {
+  const homeStartSearch = window.localStorage.getItem("currentCity");
   const [category, setCategory] = useState(categoryData);
-  const [currentCity, setCurrentCity] = useState("Taipei");
-  const data = useRef([]);
+  const [currentCity, setCurrentCity] = useState(
+    !homeStartSearch ? "Taipei" : homeStartSearch
+  );
   const [allData, setAllData] = useState([]);
-  const switchCategory = (e) => {
+  const [pageData, setPageData] = useState([]);
+  const handleChangeCategory = (e) => {
     setCategory(
       categoryData.map((item) =>
         item.id === e.target.id ? { ...item, checked: true } : item
       )
     );
   };
-  useEffect(() => {
-    // const api =
-    //   "https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot?%24select=ScenicSpotID%2C%20ScenicSpotName%2C%20Description%2C%20Address%2C%20Picture&%24top=30&%24format=JSON";
-    fetch(
-      `https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/${currentCity}?%24top=30&%24format=JSON`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
+  const getData = () => {
+    const api = `https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/${currentCity}?%24top=30&%24format=JSON`;
+    fetch(api, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => res.json())
-      .then((res) => {
-        console.log(res);
-        // 等拿到金要在寫，因為沒有金鑰所以被鎖起來了：）
-        const arr = [];
-        // res.forEach((item) => {
-        //   if (Object.keys(item.Picture).includes("PictureUrl1")) {
-        //     arr.push(item);
-        //     data.current = arr;
-        //     console.log(item);
-        //   }
-        // });
-        console.log(data.current);
-        setAllData(data.current);
-      });
+      .then((res) => setAllData(res));
     setCategory(
       categoryData.map((item) =>
         item.id === "all" ? { ...item, checked: true } : item
       )
     );
-  }, [currentCity]);
+  };
+  useEffect(() => {
+    getData();
+  }, []);
   return (
     <>
       <header>
@@ -65,7 +56,7 @@ function TouristSpots() {
                 </Link>
               </li>
               <li>
-                <span class="material-icons-outlined text-gray-700">
+                <span className="material-icons-outlined text-gray-700">
                   navigate_next
                 </span>
               </li>
@@ -76,26 +67,8 @@ function TouristSpots() {
               </li>
             </ul>
           </section>
-          {/* <section>
-            <div className="banner">
-              <p className="text-blue">熱門景點</p>
-              <ul>
-                <li></li>
-              </ul>
-            </div>
-          </section> */}
           <section className="main">
             <div className="side-tour-search">
-              <div className="input-search">
-                <input
-                  className="box-shadow"
-                  type="text"
-                  placeholder="關鍵字查詢"
-                />
-                <button>
-                  <span className="material-icons-outlined">search</span>
-                </button>
-              </div>
               <div className="card box-shadow">
                 <div className="search-title">
                   <p
@@ -122,21 +95,26 @@ function TouristSpots() {
                         type="checkbox"
                         value="{item.value}"
                         checked={item.checked}
-                        onChange={switchCategory}
+                        onChange={handleChangeCategory}
                       />
                       <span className="text-gray-600">{item.value}</span>
                     </label>
                   ))}
                 </div>
                 <div className="tour-search-btn">
-                  <button className="font-garamond search-btn">SEARCH</button>
+                  <button
+                    className="font-garamond search-btn"
+                    onClick={getData}
+                  >
+                    SEARCH
+                  </button>
                 </div>
               </div>
             </div>
             <div className="main-tour-list">
               <p className="search-result-title">搜尋結果</p>
               <ul>
-                {allData.map((item) => (
+                {pageData.map((item) => (
                   <li className="card box-shadow" key={item.ScenicSpotID}>
                     <Link className="card" to={item.ScenicSpotID}>
                       <div className="card-image">
@@ -147,9 +125,12 @@ function TouristSpots() {
                       </div>
                       <div className="card-body">
                         <div className="card-title">
-                          <p>{item.ScenicSpotName}</p>
-                          {/* {Object.keys(item).includes('Class') ? <p>{item.Class1}</p> : null} */}
-                          <p>{item.Level}</p>
+                          <p className="name">{item.ScenicSpotName}</p>
+                          <div className="classGroup">
+                            {item.Class1 ? <p>{item.Class1}</p> : null}
+                            {item.Class2 ? <p>{item.Class2}</p> : null}
+                            {item.Class3 ? <p>{item.Class3}</p> : null}
+                          </div>
                         </div>
                         <p className="card-text">{item.DescriptionDetail}</p>
                         <div className="card-info">
@@ -176,6 +157,7 @@ function TouristSpots() {
             </div>
           </section>
         </div>
+        <Pagination allData={allData} setPageData={setPageData} />
       </main>
       <Footer />
     </>
