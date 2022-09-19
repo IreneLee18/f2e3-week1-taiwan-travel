@@ -1,11 +1,10 @@
 header {
   background: $light-blue;
-
-  .tour-header {
-    @include normal-size(100%, 140px);
-    @include background-image('../assets/image/scenicspot-header.jpeg');
-    margin-bottom: 18px;
-  }
+}
+.tour-header {
+  @include normal-size(100%, 140px);
+  @include background-image('../assets/image/scenicspot-header.jpeg');
+  margin-bottom: 18px;
 }
 
 .main {

@@ -21,10 +21,12 @@
       font-size: 24px;
       margin-right: 24px;
     }
-
+  }
+  &-classGroup{
     span {
       @include background-color-radius15($yellow, $white, 14px);
       padding: 5px 10px;
+      margin-right: 4px;
     }
   }
 
@@ -68,10 +70,11 @@
   }
 
   &-image {
-    @include size(671px, 473px, 671px, 473px, 345px, 244px);
-    @include background-image('../assets/image/hotel-header.jpeg');
-    border-radius: 15px;
-    margin-bottom: 24px;
+    img{
+      @include size(671px, 473px, 671px, 473px, 345px, 244px);
+      border-radius: 15px;
+      margin-bottom: 24px;
+    }
   }
 
   &-introduce {
@@ -118,7 +121,10 @@
     }
 
     &-img {
-      @include normal-size(215px, 197px);
+      img{
+        @include normal-size(215px, 197px);
+        border-radius: 15px 15px 0 0;
+      }
     }
 
     &-body {

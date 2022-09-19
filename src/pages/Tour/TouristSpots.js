@@ -1,10 +1,8 @@
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import SearchAreaCity from "./components/SearchAreaCity";
-import Pagination from "./components/Pagination";
+import SearchAreaCity from "../components/SearchAreaCity";
+import Pagination from "../components/Pagination";
 import { Link } from "react-router-dom";
-import { categoryData } from "./Data/TourData";
-import { useEffect, useState } from "react";
+import { categoryData } from "../Data/TourData";
+import { useCallback, useEffect, useState } from "react";
 function TouristSpots() {
   const homeStartSearch = window.localStorage.getItem("currentCity");
   const [category, setCategory] = useState(categoryData);
@@ -20,7 +18,7 @@ function TouristSpots() {
       )
     );
   };
-  const getData = () => {
+  const getData = useCallback(() => {
     const api = `https://tdx.transportdata.tw/api/basic/v2/Tourism/ScenicSpot/${currentCity}?%24top=30&%24format=JSON`;
     fetch(api, {
       method: "GET",
@@ -36,16 +34,16 @@ function TouristSpots() {
         item.id === "all" ? { ...item, checked: true } : item
       )
     );
-  };
+  },[currentCity]);
   useEffect(() => {
     getData();
-  }, []);
+  }, [getData]);
+  const handleClickGoDetail = () => {
+    window.localStorage.setItem("currentCity", currentCity);
+  };
   return (
     <>
-      <header>
-        <Navbar />
-        <div className="tour-header"></div>
-      </header>
+      <div className="tour-header"></div>
       <main>
         <div className="container">
           <section>
@@ -116,7 +114,11 @@ function TouristSpots() {
               <ul>
                 {pageData.map((item) => (
                   <li className="card box-shadow" key={item.ScenicSpotID}>
-                    <Link className="card" to={item.ScenicSpotID}>
+                    <Link
+                      className="card"
+                      to={item.ScenicSpotID}
+                      onClick={handleClickGoDetail}
+                    >
                       <div className="card-image">
                         <img
                           src={item.Picture.PictureUrl1}
@@ -159,7 +161,6 @@ function TouristSpots() {
         </div>
         <Pagination allData={allData} setPageData={setPageData} />
       </main>
-      <Footer />
     </>
   );
 }
