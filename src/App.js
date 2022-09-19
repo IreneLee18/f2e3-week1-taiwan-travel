@@ -1,13 +1,16 @@
 import {Routes,Route} from 'react-router-dom'
 import Home from './pages/Home';
 import TouristSpots from './pages/TouristSpots';
+import TouristDetail from './pages/TouristDetail';
 import Food from './pages/Food';
 import Room from './pages/Room';
 function App () {
   return(
     <Routes>
       <Route index element={<Home/>}/>
-      <Route path="tour" element={<TouristSpots/>}/>
+      <Route path="tour" element={<TouristSpots/>}>
+      </Route>
+        <Route path="12" element={<TouristDetail/>}/>
       <Route path="food" element={<Food/>}/>
       <Route path="room" element={<Room/>}/>
     </Routes>

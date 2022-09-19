@@ -138,10 +138,7 @@ function TouristSpots() {
               <ul>
                 {allData.map((item) => (
                   <li className="card box-shadow" key={item.ScenicSpotID}>
-                    <Link
-                      className="card"
-                      to={`tourdetail/${item.ScenicSpotID}`}
-                    >
+                    <Link className="card" to={item.ScenicSpotID}>
                       <div className="card-image">
                         <img
                           src={item.Picture.PictureUrl1}
