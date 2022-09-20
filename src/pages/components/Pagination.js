@@ -15,7 +15,7 @@ function PaginationNum({ allData,setPageData,perPageData }) {
       ...state,
       totalPage: Math.ceil(allData.length / perPage),
     }));
-  }, [allData.length]);
+  }, [allData.length, perPage]);
 
   const pagination = useCallback((nowPage) => {
     setPage((state) => ({ ...state, currentPage: nowPage }));
@@ -49,7 +49,7 @@ function PaginationNum({ allData,setPageData,perPageData }) {
       }
       setPageData(currentPageData.current)
     });
-  }, [allData, page.currentPage, page.totalPage, setPageData]);
+  }, [allData, page.currentPage, page.totalPage, perPage, setPageData]);
 
     // 監聽目前頁碼，若有變化就呼叫 pagination 並帶入現在的頁碼 ＆ 將現在頁碼的資料放入到pageData中，使畫面可以做變化
   useEffect(() => {
