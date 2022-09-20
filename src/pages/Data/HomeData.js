@@ -101,3 +101,5 @@ export const sea = [
     id: "LienchiangCounty",
     name: "連江縣(馬祖)",
   }];
+
+export const allCity = [...north,...west,...south,...east,...sea]

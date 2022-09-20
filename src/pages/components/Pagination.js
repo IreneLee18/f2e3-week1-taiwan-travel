@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 // import { Link } from "react-router-dom";
-function Pagination({ allData,setPageData }) {
-  const perPage = 10;
+function Pagination({ allData,setPageData,perPageData }) {
+  const perPage = perPageData?perPageData:10;
   const [page, setPage] = useState({
     totalPage: 0,
     currentPage: 1,

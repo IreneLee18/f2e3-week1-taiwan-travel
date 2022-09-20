@@ -398,7 +398,7 @@ select {
   position: relative;
 }
 
-.logo {
+.home .logo {
   width: 567px;
   height: 419px;
   background-image: url("../assets/image/taiwan-logo-white.svg");
@@ -413,14 +413,14 @@ select {
 }
 
 @media (max-width: 768px) {
-  .logo {
+  .home .logo {
     width: 567px;
     height: 419px;
   }
 }
 
 @media (max-width: 375px) {
-  .logo {
+  .home .logo {
     width: 298px;
     height: 213px;
   }
@@ -830,6 +830,268 @@ header {
 .main-tour-list .card-info .touch {
   position: absolute;
   right: 18px;
+}
+
+.food {
+  width: 100%;
+  height: 100vh;
+  background-image: url("../assets/image/restaurant-header.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.food .navbar a {
+  color: #666666;
+}
+
+.food .navbar .menuBar {
+  color: #666666;
+}
+
+.food .scrollDown {
+  width: 29px;
+  height: 48px;
+  background-image: url("https://raw.githubusercontent.com/wingfailam/taiwantravel/a129221346a00d1f241f0b9d2ea8077be1c0860c/src/assets/images/icons/slideDown_default.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 50%;
+  top: 750px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .food .scrollDown {
+    position: absolute;
+    left: 50%;
+    top: 900px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 375px) {
+  .food .scrollDown {
+    position: absolute;
+    left: 50%;
+    top: 577px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+.food-logo {
+  width: 567px;
+  height: 419px;
+  background-image: url("../assets/image/taiwan-logo-black.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  left: 50%;
+  top: 160.63px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .food-logo {
+    width: 567px;
+    height: 419px;
+  }
+}
+
+@media (max-width: 375px) {
+  .food-logo {
+    width: 298px;
+    height: 213px;
+  }
+}
+
+@media (max-width: 768px) {
+  .food-logo {
+    position: absolute;
+    left: 50%;
+    top: 300px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 375px) {
+  .food-logo {
+    position: absolute;
+    left: 50%;
+    top: 209.63px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+.food-sm-logo {
+  width: 121px;
+  height: 82.73px;
+  position: absolute;
+  left: 50%;
+  top: 209px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media (max-width: 375px) {
+  .food-sm-logo {
+    position: absolute;
+    left: 50%;
+    top: 306px;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+
+.food-search-text {
+  width: 768px;
+  margin: 90px auto 125px;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .food-search-text {
+    width: 700px;
+    margin: 40px auto;
+  }
+}
+
+@media (max-width: 375px) {
+  .food-search-text {
+    width: 345px;
+  }
+}
+
+.food-search-text .food-text {
+  letter-spacing: 0.84px;
+  line-height: 1.3;
+}
+
+.food-search {
+  margin-top: 255px;
+  padding: 40px 0 43px;
+  border-top: 1px solid #666666;
+  border-bottom: 1px solid #666666;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media (max-width: 768px) {
+  .food-search {
+    margin-top: 203px;
+  }
+}
+
+.food-search .whereCityFood {
+  letter-spacing: 1.54px;
+  font-size: 22px;
+  color: #666666;
+  margin-right: 30px;
+}
+
+@media (max-width: 375px) {
+  .food-search .whereCityFood {
+    margin-right: 0;
+  }
+}
+
+.food-search label {
+  text-align: center;
+  position: relative;
+}
+
+.food-search label select {
+  width: 354px;
+  height: 50px;
+}
+
+@media (max-width: 375px) {
+  .food-search label select {
+    margin-top: 16px;
+  }
+}
+
+.food-search label .arrow {
+  position: absolute;
+  right: 15px;
+  font-size: 50px;
+}
+
+@media (max-width: 375px) {
+  .food-search label .arrow {
+    top: 45px;
+    font-size: 35px;
+  }
+}
+
+.foodGroup {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 41px;
+}
+
+.foodGroup li {
+  width: 33.3333%;
+  position: relative;
+}
+
+@media (max-width: 375px) {
+  .foodGroup li {
+    width: 50%;
+  }
+}
+
+.foodGroup li img {
+  width: 100%;
+  height: 100%;
+}
+
+.foodGroup li span {
+  z-index: -1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: transparent;
+  color: #FFFFFF;
+  font-size: 28px;
+  white-space: nowrap;
+  text-shadow: 0 0 15px #E8CB89;
+}
+
+@media (max-width: 375px) {
+  .foodGroup li span {
+    font-size: 16px;
+    white-space: normal;
+  }
+}
+
+.foodGroup li:hover img {
+  opacity: 0.7;
+}
+
+.foodGroup li:hover span {
+  z-index: 1;
 }
 
 .pageNavbar {

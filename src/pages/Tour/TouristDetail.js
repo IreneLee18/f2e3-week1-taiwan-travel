@@ -237,7 +237,7 @@ function TouristDetail() {
               <ul className="tourist-detail-more-card">
                 {sameCityRoom.map((item) => (
                   <li className="box-shadow" key={item.HotelID}>
-                    <Link to={`/tour/${item.HotelID}`}>
+                    <Link to={`/room/${item.HotelID}`}>
                       <div className="tourist-detail-more-card-img">
                         <img
                           src={item.Picture.PictureUrl1}
