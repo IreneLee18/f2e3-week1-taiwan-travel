@@ -1,6 +1,8 @@
-.food {
-  @include normal-size(100%, 100vh);
+.food{
   @include background-image('../assets/image/restaurant-header.jpeg');
+}
+.food,.room {
+  @include normal-size(100%, 100vh);
   position: relative;
 
   .navbar {

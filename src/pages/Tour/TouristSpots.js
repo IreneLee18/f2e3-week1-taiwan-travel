@@ -1,5 +1,5 @@
 import SearchAreaCity from "../components/SearchAreaCity";
-import Pagination from "../components/Pagination";
+import PaginationNum from "../components/PaginationNum";
 import { Link } from "react-router-dom";
 import { categoryData } from "../Data/TourData";
 import { useCallback, useEffect, useState } from "react";
@@ -159,7 +159,7 @@ function TouristSpots() {
             </div>
           </section>
         </div>
-        <Pagination allData={allData} setPageData={setPageData} />
+        <PaginationNum allData={allData} setPageData={setPageData} />
       </main>
     </>
   );

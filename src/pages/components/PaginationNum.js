@@ -8,7 +8,11 @@ function PaginationNum({ allData,setPageData,perPageData }) {
     hasPer: false,
     hasNext: false,
   });
+  const pageNum = [];
   const currentPageData = useRef([]);
+  for (let i = 1; i <= page.totalPage; i++) {
+    pageNum.push(i);
+  }
 
   useEffect(() => {
     setPage((state) => ({
@@ -59,7 +63,7 @@ function PaginationNum({ allData,setPageData,perPageData }) {
   return (
     <>
       <div className="container">
-        <ul className="pagination">
+        <ul className="paginationNum">
           <li
             className={page.hasPer ? "" : "disabled"}
             onClick={() =>
@@ -71,6 +75,25 @@ function PaginationNum({ allData,setPageData,perPageData }) {
           >
             &#8249;
           </li>
+          {pageNum.map((item) => (
+            <li
+              key={item}
+              id={item}
+              className={
+                Number(page.currentPage) === Number(item)
+                  ? "pagination-active"
+                  : ""
+              }
+              onClick={(e) =>
+                setPage((state) => ({
+                  ...state,
+                  currentPage: e.target.id,
+                }))
+              }
+            >
+              {item}
+            </li>
+          ))}
           <li
             className={page.hasNext ? "" : "disabled"}
             onClick={() =>

@@ -7,6 +7,8 @@ import Food from "./pages/Food";
 import FoodList from "./pages/Food/FoodList";
 import FoodDetail from "./pages/Food/FoodDetail";
 import Room from "./pages/Room";
+import RoomList from "./pages/Room/RoomList";
+import RoomDetail from "./pages/Room/RoomDetail";
 function App() {
   return (
     <Routes>
@@ -19,7 +21,10 @@ function App() {
         <Route index element={<FoodList/>}/>
         <Route path=":id" element={<FoodDetail/>}/>
       </Route>
-      <Route path="room" element={<Room />} />
+      <Route path="room" element={<Room />}>
+      <Route index element={<RoomList/>}/>
+        <Route path=":id" element={<RoomDetail/>}/>
+      </Route>
     </Routes>
   );
 }

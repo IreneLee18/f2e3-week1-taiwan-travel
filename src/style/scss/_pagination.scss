@@ -1,4 +1,4 @@
-.pagination {
+.paginationNum,.pagination {
   display: flex;
   justify-content: end;
 
@@ -26,5 +26,10 @@
     background: $gray-100;
     color: #BCBCBC;
     border-color: $gray-100;
+  }
+}
+.pagination{
+  li{
+    border-radius: 50%;
   }
 }

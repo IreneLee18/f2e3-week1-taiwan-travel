@@ -1,4 +1,4 @@
-import Pagination from "../components/Pagination";
+import Pagination from "../components/PaginationNum";
 import Loading from "../components/Loading";
 import { allCity } from "../Data/HomeData";
 import { Link } from "react-router-dom";
